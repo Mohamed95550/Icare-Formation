@@ -14,6 +14,7 @@ router.route('/add').post((req, res) => {
     const description = req.body.description;
     const price= Number(req.body.price);
     const stock = Number(req.body.stock);
+    const solde = Number(req.body.solde);
     const images = Number(req.body.images);
   
     const newProduct = new Product({
@@ -22,6 +23,7 @@ router.route('/add').post((req, res) => {
       description,
       price,
       stock,
+      solde,
       images
     });
   
@@ -54,6 +56,7 @@ router.route('/update/:id').post((req, res) => {
         product.description = req.body.description;
         product.price = req.body.price;
         product.stock = req.body.stock;
+        product.solde = req.body.solde;
         product.images = req.body.images;
 
       product.save()

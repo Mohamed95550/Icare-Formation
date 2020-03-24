@@ -8,6 +8,7 @@ const productSchema = new Schema({
   description : { type: String, required: true} ,
   price : { type: Number, required: true} ,
   stock : { type: Number, required: true} ,
+  solde : { type: Number, required: false,maxlength:2} ,
   images: [{
     type: String,
     default: ["../assets/images/annonce.jpg"]

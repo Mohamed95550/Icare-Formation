@@ -10,6 +10,7 @@ export default class EditProduct extends Component {
     this.onChangeDescription = this.onChangeDescription.bind(this);
     this.onChangePrice = this.onChangePrice.bind(this);
     this.onChangeStock = this.onChangeStock.bind(this);
+    this.onChangeSolde = this.onChangeSolde.bind(this);
     this.onChangeImages = this.onChangeImages.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
@@ -19,6 +20,7 @@ export default class EditProduct extends Component {
         description: '',
         price: '',
         stock: '',
+        slode:'',
         images: ''
     }
   }
@@ -32,6 +34,7 @@ export default class EditProduct extends Component {
           description : response.data.description,
           price : response.data.price,
           stock : response.data.stock,
+          solde : response.data.solde,
           images : response.data.images
         })
     })
@@ -69,6 +72,12 @@ export default class EditProduct extends Component {
       stock: e.target.value
     })
   }
+
+  onChangeSolde(e) {
+    this.setState({
+      solde: e.target.value
+    })
+  }
   
   onChangeImages(e) {
     this.setState({
@@ -86,6 +95,7 @@ goToHome(e){
       description: this.state.description,
       price: this.state.price,
       stock: this.state.stock,
+      solde: this.state.solde,
       images: this.state.images
     }
 
@@ -93,7 +103,7 @@ goToHome(e){
 
     axios.post('http://localhost:5000/products/update/'+this.props.match.params.id, product)
     .then(res => console.log(res.data));
-   window.location = '/';
+   window.location = '/products';
 }
 
   render() {
@@ -124,17 +134,18 @@ goToHome(e){
         <div className="row">
                 <div className="form-group col-12"> 
                 <label>Description :</label>
-                    <input  type="text"
+                    <textarea 
                         required
                         className="form-control"
                         value={this.state.description}
                         onChange={this.onChangeDescription}
+                        rows="8"
                         />
                 </div>
         </div>              
         
         <div className="row">
-                <div className="form-group col-6"> 
+                <div className="form-group col-4"> 
                 <label>Price :</label>
                 <input  type="text"
                     required
@@ -143,13 +154,23 @@ goToHome(e){
                     onChange={this.onChangePrice}
                     />
                 </div>
-                <div className="form-group col-6"> 
+                <div className="form-group col-4"> 
                 <label>Stock :</label>
                 <input  type="text"
                     required
                     className="form-control"
                     value={this.state.stock}
                     onChange={this.onChangeStock}
+                
+                    />
+                </div>
+                <div className="form-group col-4"> 
+                <label>Solde :</label>
+                <input  type="text"
+                    className="form-control"
+                    value={this.state.solde}
+                    onChange={this.onChangeSolde}
+                  maxLength="2"
                     />
                 </div>
         </div>
@@ -168,10 +189,10 @@ goToHome(e){
                 <div className="form-group col-8" >  
                 </div>
                 <div className="form-group col-2" >
-                    <input type="submit" value="Update this Product" className="btn btn-warning" />
+                    <input type="submit" value="Update this Product" className="btn btn-outline-warning btn-block" />
                 </div>
                 <div className="form-group col-2" >
-                    <input type="submit" value="Annuler" className="btn btn-primary" onClick={this.goToHome} />
+                    <input type="submit" value="to Home" className="btn btn-outline-primary btn-block" onClick={this.goToHome} />
                 </div>
                
         </div>              

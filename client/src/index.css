@@ -1,8 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +8,92 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+#logo{
+  font-weight: bold;
+  color:greenyellow;
+  font-size: 25px;
+  padding-right: 45px;
+}
+#navbar a{
+  color: black;
+}
+.rowProduct{
+  margin: 100px;
+  list-style-type: none;
+  padding: 100px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 7px #aaa;
+}
+
+img{
+  border-radius: 10px;
+  cursor: pointer;
+}
+#card{
+  padding-top: 5px;
+  width: 18rem;
+  margin-bottom: 8px;
+  border: none;
+  transition: 0.7s;
+  box-shadow: -4px -5px 10px 2px rgba(0,0,0,0.1);
+}
+#card:hover{
+  box-shadow:none;
+  background-color: rgba(0,0,0,0.04);
+}
+/*#stockStyle{
+  width: 3rem;
+}*/
+#notif{
+  margin-right: 10px;
+  cursor: pointer;
+}
+#imgProduct{
+  height: 250px;
+}
+
+#txtDecription{
+  height: 30px;
+  overflow: hidden;
+}
+#txtPrice{
+  float: right;
+background-color: greenyellow;
+}
+#floatR{
+  float: right;
+}
+#searching{
+  width: 150px;
+  height: 38px;
+  outline: none;
+  margin-right: 10px;
+  border-radius: 10px;
+  border: 2px solid rgb(238, 235, 235);
+  padding-left: 10px;
+  transition: 0.7s;
+}
+
+#searching:focus{
+  width:30%;
+  background-color: white;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 7px 5px 20px -8px rgba(0,0,0,1);
+}
+.bigTd{
+  width: 300px;
+}
+.smallTd{
+  width: 80px;
+}
+#b{
+  font-size: 18px;
+}
+#badge{
+  background-color: greenyellow;
+}
+#dropdown{
+  border: none;
 }

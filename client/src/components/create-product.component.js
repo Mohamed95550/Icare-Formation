@@ -10,6 +10,7 @@ export default class CreateProduct extends Component {
     this.onChangeDescription = this.onChangeDescription.bind(this);
     this.onChangePrice = this.onChangePrice.bind(this);
     this.onChangeStock = this.onChangeStock.bind(this);
+    this.onChangeSolde = this.onChangeSolde.bind(this);
     this.onChangeImages = this.onChangeImages.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
@@ -52,6 +53,12 @@ export default class CreateProduct extends Component {
       stock: e.target.value
     })
   }
+
+  onChangeSolde(e) {
+    this.setState({
+      solde: e.target.value
+    })
+  }
   
   onChangeImages(e) {
     this.setState({
@@ -67,6 +74,7 @@ export default class CreateProduct extends Component {
       description: this.state.description,
       price: this.state.price,
       stock: this.state.stock,
+      solde: this.state.solde,
       images: [this.state.images]
     }
 
@@ -104,19 +112,7 @@ export default class CreateProduct extends Component {
                 </div>
         </div>
         <div className="row">
-                <div className="form-group col-12"> 
-                    <input  type="text"
-                        required
-                        className="form-control"
-                        value={this.state.description}
-                        onChange={this.onChangeDescription}
-                        placeholder="Enter the description"
-                        />
-                </div>
-        </div>              
-        
-        <div className="row">
-                <div className="form-group col-6"> 
+                <div className="form-group col-4"> 
                 <input  type="text"
                     required
                     className="form-control"
@@ -125,13 +121,23 @@ export default class CreateProduct extends Component {
                     placeholder="Enter the price (euro)"
                     />
                 </div>
-                <div className="form-group col-6"> 
+                <div className="form-group col-4"> 
                 <input  type="text"
                     required
                     className="form-control"
                     value={this.state.stock}
                     onChange={this.onChangeStock}
                     placeholder="Enter quatity in stock"
+                    />
+                </div>
+                <div className="form-group col-4"> 
+                <input  type="text"
+                    required
+                    className="form-control"
+                    value={this.state.solde}
+                    onChange={this.onChangeSolde}
+                    placeholder="Solde %"
+                    maxLength="2"
                     />
                 </div>
         </div>
@@ -146,13 +152,25 @@ export default class CreateProduct extends Component {
                         />
                   </div>
         </div>    
+        <div className="row">
+                <div className="form-group col-12"> 
+                  <textarea 
+                        required
+                        className="form-control"
+                        value={this.state.description}
+                        onChange={this.onChangeDescription}
+                        placeholder="Enter the description"
+                        rows="8"
+                    />
+                </div>
+        </div>             
         <div className="row"> 
                 <div className="form-group col-8"></div>
                 <div className="form-group col-2" >
-                    <input type="submit" value="Create new Product" className="btn btn-success" />
+                    <input type="submit" value="Create new Product" className="btn btn-outline-success btn-block" />
                 </div>
                 <div className="form-group col-2" >
-                    <input type="reset" value="Reset" className="btn btn-warning" />
+                    <input type="reset" value="Reset" className="btn btn-outline-warning btn-block" />
                 </div>
         </div>              
       </form>
