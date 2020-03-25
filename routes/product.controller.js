@@ -68,9 +68,9 @@ router.route('/update/:id').post((req, res) => {
 
 //search function
 router.route('/searching/:value').get((req, res) => {
-    Product.find(title = req.params.value)   
+    Product.find({"title": { "$regex": req.params.value, "$options": "i" } } )
  // Product.findById(req.params.id)
-    .then(product => res.json(product))
+    .then(products => res.json(products))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 module.exports = router;

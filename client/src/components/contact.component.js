@@ -63,8 +63,8 @@ export default class ContactUs extends Component {
 
   render() {
     return (
-    <div className="container">
-       <h5><a href="#" className="badge badge-success" id="badge">Contact us</a></h5><br></br>      
+      <div id="marginNav" className="container">
+       <h5><a href="#" className="badge badge-success" id="badge">Contact us</a></h5> 
       <p> <FontAwesome name='calendar' />{this.state.time} </p>
       <form onSubmit={this.onSubmit}>
 

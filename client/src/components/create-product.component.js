@@ -85,11 +85,10 @@ export default class CreateProduct extends Component {
       console.log(product);
     window.location = '/';
   }
-
   render() {
     return (
-    <div>
-      <h3>Create New product</h3>
+      <div id="marginNav">
+      <h5><a href="#" className="badge badge-success" id="badge">Products</a> <a href="#" className="badge badge-success" id="badge">Create product</a></h5><br></br>
       <form onSubmit={this.onSubmit}>
         <div className="row">
                 <div className="form-group col-6"> 

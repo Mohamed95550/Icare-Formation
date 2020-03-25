@@ -9,8 +9,7 @@ const Product = props => (
        </div>
        <div className="col-md-8"></div>
        <div className="col-md-2">
-          {(Number(props.product.stock) <6 ) ? <h6><a href="#" className="badge badge-danger" id="floatR">{props.product.stock} stock</a></h6>: <h6><a href="#" className="badge badge-success" id="txtPrice">In stock</a></h6>}
-         
+          {(Number(props.product.stock) <6 ) ? <h6><a href="#" className="badge badge-danger" id="floatR">{props.product.stock} stock</a></h6>: <h6><a href="#" className="badge badge-success" id="txtPrice">In stock</a></h6>}   
        </div>
        </div>
       <img src={props.product.images} className="card-img-top" id="imgProduct" onClick={() =>{
@@ -19,13 +18,11 @@ const Product = props => (
           <h5 className="card-title" >{props.product.title}</h5>       
           <p className="card-text" id="txtDecription">{props.product.description}.</p>
           <h5><a href="#" className="badge badge-success" id="txtPrice">{props.product.price} &#8364;</a></h5>
-          {Number(props.product.stock) === 0 ? <span className="btn btn-danger  btn-block">Coming soon</span>:<Link to={"/edit/"+props.product._id}> <span className="btn btn-outline-success  btn-block" id="btn" >Checkout</span></Link>}
+          {Number(props.product.stock) === 0 ? <span className="btn btn-outline-danger  btn-block">Coming soon</span>:<Link to={"/edit/"+props.product._id}> <span className="btn btn-outline-success  btn-block" id="btn" >Checkout</span></Link>}
       
       </div>
   </div>
 )
-
-
 
 export default class ProductList extends Component {
   constructor(props) {
@@ -63,8 +60,9 @@ export default class ProductList extends Component {
 
   render() {
     return (
-      <div>
-      <h5><a href="#" className="badge badge-success" id="badge">Store</a></h5><br></br>
+      <div id="marginNav">
+      <h5><a href="#" className="badge badge-success" id="badge">Store</a></h5>
+  
           <div className="row">
              { this.productList() }
              <div className="col-md-1"></div>

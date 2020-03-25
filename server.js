@@ -4,8 +4,38 @@ const app = express();
 const cors = require('cors');
 const port = process.env.PORT || 5000;
 const productsController = require('./routes/product.controller');
+const passport = require ('passport');
+const keys = require('./config/keys');
+const googleStrategy = require ('passport-google-oauth20').Strategy;
 
 app.use(cors());
+
+passport.use(new googleStrategy({
+
+  clientID : keys.googleClientID,
+  clientSecret : keys.googleClientSecret,
+  callbackURL:'/auth/google/callback'
+},(accessToken,profile,refreshToken,done)=>{
+
+console.log("accessToken :"+accessToken);
+console.log("RefreshToken :"+refreshToken);
+console.log("Profile :"+profile);
+}))
+
+app.get('/auth/google',passport.authenticate("google",
+{
+    scope:['profile','email']
+}
+));
+
+app.get(
+'/auth/google/callback',
+passport.authenticate('google'),
+(req, res) => {
+res.redirect('/products');
+}
+);
+
 
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));

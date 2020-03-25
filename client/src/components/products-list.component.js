@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
  
-
-
 const Product = props => (
   <tr>
     <td><b>{props.product.title}</b></td>
@@ -28,16 +26,15 @@ export default class ProductList extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/products/')
+  
+      axios.get('http://localhost:5000/products/')
       .then(response => {
         this.setState({ products: response.data })
       })
       .catch((error) => {
         console.log(error);
-      })
+      })  
   }
-
- 
 
   deleteProduct(id) {
     axios.delete('http://localhost:5000/products/'+id)
@@ -57,10 +54,10 @@ export default class ProductList extends Component {
 
   render() {
     return (
-      <div>
+      <div id="marginNav">
+          <h5><a href="#" className="badge badge-success" id="badge">List products</a></h5>
           <Link to={"/create"}> <span className="btn btn-outline-success" ><b id="b">+</b> New product</span></Link> 
-          <br/>    <br/>
-        <h3>Liste Products :</h3>
+        
         <table className="table">
           <thead>
             <tr>

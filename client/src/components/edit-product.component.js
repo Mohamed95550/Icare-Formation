@@ -108,8 +108,8 @@ goToHome(e){
 
   render() {
     return (
-    <div>
-      <h3>Update this product:</h3>
+      <div id="marginNav">
+     <h5><a href="#" className="badge badge-success" id="badge">Products</a> <a href="#" className="badge badge-success" id="badge">Edit product</a></h5>
       <form onSubmit={this.onSubmit}>
         <div className="row">
                 <div className="form-group col-6"> 
